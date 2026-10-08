@@ -539,67 +539,264 @@
 // }
 
 //30
-const producten = [
-  "Huisblend",
-  "Ethiopia Sidamo",
-  "Colombia Supremo",
-  "Kenya AA",
-];
-const prijzen = [24.5, 32.0, 27.9, 29.95];
-const aantallen = [2, 0, 1, 3]; // wat de klant wil kopen
-const voorraad = [10, 5, 1, 2]; // wat er in de winkel ligt
-const klanttype = "vaste klant";
-let subTotaal = 0; //moet op 0 staan anders werkt het niet
+// const producten = [
+//   "Huisblend",
+//   "Ethiopia Sidamo",
+//   "Colombia Supremo",
+//   "Kenya AA",
+// ];
+// const prijzen = [24.5, 32.0, 27.9, 29.95];
+// const aantallen = [2, 0, 1, 3]; // wat de klant wil kopen
+// const voorraad = [10, 5, 1, 2]; // wat er in de winkel ligt
+// const klanttype = "vaste klant";
+// let subTotaal = 0; //moet op 0 staan anders werkt het niet
 
-console.log("ROAST & CO. - KASSATICKET");
-console.log("---------------------------");
+// console.log("ROAST & CO. - KASSATICKET");
+// console.log("---------------------------");
 
-for (let i = 0; i < producten.length; i++) {
-  let aantal = aantallen[i];
-  if (aantal > 0) {
-    if (aantal > voorraad[i]) {
-      console.log(
-        `Let op: slechts ${voorraad[i]} x ${producten[i]} op voorraad`,
-      );
-      aantal = voorraad[i];
+// for (let i = 0; i < producten.length; i++) {
+//   let aantal = aantallen[i];
+//   if (aantal > 0) {
+//     if (aantal > voorraad[i]) {
+//       console.log(
+//         `Let op: slechts ${voorraad[i]} x ${producten[i]} op voorraad`,
+//       );
+//       aantal = voorraad[i];
+//     }
+//     let subPrijs = aantal * prijzen[i];
+//     subTotaal += subPrijs;
+//     console.log(`${aantal} x ${producten[i]} à ${prijzen[i]} = ${subPrijs}`);
+//   }
+// }
+
+// let korting;
+// switch (true) {
+//   case klanttype === "abonnee":
+//     korting = 0.85;
+
+//     break;
+//   case klanttype === "nieuw":
+//     korting = 0.95;
+
+//     break;
+//   case klanttype === "vaste klant":
+//     korting = 0.9;
+
+//     break;
+//   default:
+//     korting = 1;
+// }
+
+// let bedragNaKorting = subTotaal * korting;
+
+// let verzendkosten = 4.95;
+// if (bedragNaKorting > 50) {
+//   verzendkosten = 0;
+// }
+
+// let volledigePrijs = bedragNaKorting + verzendkosten;
+
+// let btw = bedragNaKorting - bedragNaKorting / 1.21;
+// console.log("-----------------------------");
+// console.log("Subtotaal: " + subTotaal);
+// console.log("Korting: " + (subTotaal - bedragNaKorting).toFixed(2));
+// console.log("Verzendkosten: " + verzendkosten);
+// console.log("Totaal: " + volledigePrijs.toFixed(2));
+// console.log("Totaal: " + btw.toFixed(2));
+
+//extra 1
+
+// const hoogte = 4;
+// const bekers = 11;
+
+// let rijen = 0;
+// let bekersGebruikt = 0;
+// let bekersOver = bekers;
+
+// for (i = 1; i <= hoogte; i++) {
+//   let eenBeker = "";
+
+//   for (j = 0; j < hoogte - i; j++) {
+//     eenBeker += "  ";
+//   }
+
+//   for (n = 0; n < i; n++) {
+//     eenBeker += "[_] ";
+//     bekersGebruikt++;
+//   }
+//   console.log(eenBeker);
+// }
+
+// console.log(
+//   `Een toren van ${hoogte} rijen heeft ${bekersGebruikt} bekers nodig`,
+// );
+
+// for (i = 1; i <= bekersOver; i++) {
+//   rijen++;
+//   bekersOver -= i;
+// }
+
+// let woord = bekersOver > 1 ? "bekers" : "beker";
+
+// console.log(
+//   `Met ${bekers} kan je een toren van ${rijen} maken en houdt je nog ${bekersOver} ${woord} over`,
+// );
+
+//extra 2
+
+// const aantalBestellingen = 1000;
+// let vorigPriemgetal = 0;
+// let volgendPriemgetal = 0;
+// let aantalKlanten = 0;
+// let koekjes = "";
+// let opLijn = 0;
+// let grootsteAfstand = 0;
+// let eersteGrens = 0;
+
+// for (let i = 2; i <= aantalBestellingen; i++) {
+//   let isPriemgetal = true;
+//   for (let teller = 2; teller < i; teller++) {
+//     if (i % teller === 0) {
+//       isPriemgetal = false;
+//       break;
+//     }
+//   }
+
+//   if (isPriemgetal) {
+//     let afstand = i - vorigPriemgetal;
+
+//     if (afstand > grootsteAfstand) {
+//       grootsteAfstand = afstand;
+//       eersteGrens = vorigPriemgetal;
+//       volgendPriemgetal = i;
+//     }
+
+//     vorigPriemgetal = i;
+//     aantalKlanten++;
+//   }
+
+//   if (isPriemgetal === true && opLijn < 10) {
+//     if (i >= 100) {
+//       koekjes += " " + i;
+//     } else if (i >= 10) {
+//       koekjes += "  " + i;
+//     } else {
+//       koekjes += "   " + i;
+//     }
+
+//     opLijn++;
+//   }
+
+//   if (opLijn === 10) {
+//     console.log(koekjes);
+//     opLijn = 0;
+//     koekjes = "";
+//   }
+// }
+// if (opLijn > 0) {
+//   console.log(koekjes);
+// }
+// console.log("vorige: " + eersteGrens);
+// console.log("volgend: " + volgendPriemgetal);
+// console.log("afstand: " + grootsteAfstand);
+// console.log("klanten: " + aantalKlanten);
+
+//3 extra
+
+// const teBetalen = 20;
+// const betaald = 20;
+// let verschil = Math.round((betaald - teBetalen) * 100);
+
+// const biljetten = [5000, 2000, 1000, 500, 200, 100, 50, 20, 10, 5, 2, 1];
+
+// console.log("Te betalen: €" + teBetalen);
+// console.log("Te betalen: €" + betaald);
+// console.log("Wisselgeld: €" + (verschil / 100).toFixed(2));
+// console.log("--------------------------------");
+
+// for (biljet in biljetten) {
+//   let aantal = 0;
+//   if (verschil >= biljetten[biljet]) {
+//     while (verschil >= biljetten[biljet]) {
+//       verschil -= biljetten[biljet];
+//       aantal++;
+//     }
+
+//     let woord = "";
+
+//     if (biljetten[biljet] >= 500 && aantal > 1) {
+//       woord = "biljetten";
+//     } else if (biljetten[biljet] >= 500) {
+//       woord = "biljet";
+//     } else if (aantal > 1) {
+//       woord = "munten";
+//     } else {
+//       woord = "munt";
+//     }
+
+//     console.log(
+//       `${aantal} x ${woord} van €${(biljetten[biljet] / 100).toFixed(2)}`,
+//     );
+//   }
+// }
+
+//4 extra
+
+const klanten = [4, 12, 18, 9, 7, 15, 22, 19, 8, 5, 3];
+const openingsuur = 7;
+let uren = 0;
+let startUur = 0;
+let eindUur = 0;
+let totaal = 0;
+let isDrukste = true;
+let drukste = 0;
+let druksteUur = "";
+
+for (let i = 0; i < klanten.length; i++) {
+  startUur = openingsuur + i;
+  eindUur = startUur + 1;
+
+  let startTekst = startUur < 10 ? `0${startUur}` : `${startUur}`;
+  let eindTekst = eindUur < 10 ? `0${eindUur}` : `${eindUur}`;
+
+  let sterrenTekst = "";
+  let aantalSterren = Math.ceil(klanten[i] / 2);
+  for (s = 0; s < 11; s++) {
+    if (s < aantalSterren) {
+      sterrenTekst += "* ";
+    } else {
+      sterrenTekst += "  ";
     }
-    let subPrijs = aantal * prijzen[i];
-    subTotaal += subPrijs;
-    console.log(`${aantal} x ${producten[i]} à ${prijzen[i]} = ${subPrijs}`);
   }
+
+  if (drukste > klanten[i]) {
+    isDrukste = true;
+  } else {
+    isDrukste = false;
+  }
+
+  if (isDrukste === true) {
+  }
+
+  drukste = klanten[i];
+
+  let label = "";
+  switch (true) {
+    case klanten[i] > 15:
+
+    case klanten[i] > 8 && klanten[i] <= 15:
+      label = "normaal";
+      break;
+    default:
+      label = "rustig";
+  }
+
+  console.log(
+    `${startTekst}u - ${eindTekst}u | ${sterrenTekst} | ${klanten[i]} ${label}`,
+  );
+  totaal += klanten[i];
 }
-
-let korting;
-switch (true) {
-  case klanttype === "abonnee":
-    korting = 0.85;
-
-    break;
-  case klanttype === "nieuw":
-    korting = 0.95;
-
-    break;
-  case klanttype === "vaste klant":
-    korting = 0.9;
-
-    break;
-  default:
-    korting = 1;
-}
-
-let bedragNaKorting = subTotaal * korting;
-
-let verzendkosten = 4.95;
-if (bedragNaKorting > 50) {
-  verzendkosten = 0;
-}
-
-let volledigePrijs = bedragNaKorting + verzendkosten;
-
-let btw = bedragNaKorting - bedragNaKorting / 1.21;
-console.log("-----------------------------");
-console.log("Subtotaal: " + subTotaal);
-console.log("Korting: " + (subTotaal - bedragNaKorting).toFixed(2));
-console.log("Verzendkosten: " + verzendkosten);
-console.log("Totaal: " + volledigePrijs.toFixed(2));
-console.log("Totaal: " + btw.toFixed(2));
+console.log("----------------------------------------------");
+let gemiddelde = (totaal / klanten.length).toFixed(1);
+console.log(`Totaal: ${totaal} klanten, gemiddeld ${gemiddelde} per uur`);
+console.log(`Drukste uur ${drukste}`);
